@@ -14,8 +14,8 @@
 🕷️ robots.txt & sitemap.xml — Validates presence of files  
 💡 SEO Suggestions — Actionable feedback based on scan  
 🎯 SEO Score — Weighted score based on audit results  
-📊 Lighthouse Report (Bonus) — Google-like full site analysis  
-🔗 Broken Link Checker (Bonus) — Detects internal 404s  
+📊 Lighthouse Report — Google-like full site analysis  
+🔗 Broken Link Checker  — Detects internal 404s  
 
 
 ---
@@ -24,8 +24,7 @@
 
 - **Frontend:** React.js, Tailwind CSS, React Router  
 - **Backend:** Node.js, Express.js  
-- **Browser Automation:** Puppeteer  
-- **PDF / Reports (Optional):** jsPDF or Puppeteer PDF  
+- **Browser Automation:** Puppeteer 
   
 
 ---
