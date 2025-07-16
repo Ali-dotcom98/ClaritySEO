@@ -44,3 +44,5 @@ node Server.js
 cd ../frontend
 npm install
 npm run dev
+```
+screencapture-localhost-5173-2025-07-16-12_11_07.png
