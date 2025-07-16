@@ -45,4 +45,4 @@ cd ../frontend
 npm install
 npm run dev
 ```
-screencapture-localhost-5173-2025-07-16-12_11_07.png
+![MacBook Pro 16_ - 1](https://github.com/user-attachments/assets/84276b5c-cad8-4247-a54a-53a9221c14a6)
