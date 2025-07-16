@@ -45,4 +45,4 @@ cd ../frontend
 npm install
 npm run dev
 ```
-![MacBook Pro 16_ - 1](https://github.com/user-attachments/assets/screencapture-localhost-5173-2025-07-16-12_11_07)
+![MacBook Pro 16_ - 1]()
