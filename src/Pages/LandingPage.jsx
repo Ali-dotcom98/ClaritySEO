@@ -13,7 +13,7 @@ const LandingPage = () => {
         <Header/>
 
         <SearchBar/>
-        <div className=' translate-x-4 translate-y-28 '>
+        <div className=' translate-x-4 translate-y-24 '>
           <SvgPath />
         </div>
       </div>

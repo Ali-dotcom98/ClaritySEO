@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import CheckUrl from "../Componenets/TestUrl"
+import SearchButton from './SearchButton';
 
 const SearchBar = () => {
   const navigate = useNavigate();
   const [Url, setUrl] = useState("")
   const [error, seterror] = useState("")
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault(); 
     console.log(Url);
     const isValid = CheckUrl(Url)
@@ -17,6 +18,7 @@ const SearchBar = () => {
 
         return
     }
+    await new Promise(res => setTimeout(res, 5000));
     navigate("/Audit" ,  {
     
     state: { url: Url}});
@@ -42,15 +44,21 @@ const SearchBar = () => {
           "
           onChange={(e)=>setUrl(e.target.value)}
         />
-        <button
-          type="submit"
+<button>
+      <SearchButton/>
+</button>   
+        
+
+
+        {/* <button
+          type="submit" 
           className="
             border border-[#222222] text-white px-5 rounded-md
             hover:bg-[#222222] transition
           "
         >
           Search
-        </button>
+        </button> */}
       </form>
       <div className='absolute text-red-700 text-sm translate-y-2'>
         {error}

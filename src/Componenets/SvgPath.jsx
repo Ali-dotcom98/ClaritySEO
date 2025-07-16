@@ -8,23 +8,32 @@ const SvgPath = () => {
       className="w-full h-[200px] overflow-visible"
     >
       <defs>
-        <filter id="whiteShadowTopOnly" x="-100%" y="-200%" width="300%" height="500%">
+       
+        <filter id="doubleGlow" x="-100%" y="-400%" width="400%" height="600%">
           <feDropShadow
             dx="0"
-            dy="-10"                 // shift shadow upward
-            stdDeviation="20"       // increase spread
-            floodColor="white"
+            dy="-20"
+            stdDeviation="50"
+            floodColor="#fb923c"
             floodOpacity="1"
+          />
+          <feDropShadow
+            dx="0"
+            dy="-10"
+            stdDeviation="25"
+            floodColor="#fb923c"
+            floodOpacity="0.6"
           />
         </filter>
       </defs>
 
       <path
         d="M0,120 Q540,-60 1080,120"
-        stroke="#9fb2c3"
-        strokeWidth="4"
+        stroke="#fb923c"
+        strokeWidth="3"
         fill="transparent"
-        filter="url(#whiteShadowTopOnly)"
+        filter="url(#doubleGlow)"
+      
       />
     </svg>
   );

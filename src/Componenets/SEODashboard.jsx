@@ -33,7 +33,7 @@ const ScoreCircle = ({ score }) => {
   const circumference = 2 * Math.PI * 40;
   const strokeDashoffset = circumference - (score / 100) * circumference;
   const color =
-    score >= 90 ? 'green-400' : score >= 70 ? 'yellow-400' : 'red-400';
+    score >= 90 ? 'white' : score >= 70 ? 'white' : 'white';
 
   return (
     <div className="relative w-24 h-24">
@@ -56,7 +56,7 @@ const ScoreCircle = ({ score }) => {
           fill="transparent"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
-          className={`transition-all duration-1000 stroke-${color}`}
+          className={`transition-all duration-1000 stroke-orange-500`}
           strokeLinecap="round"
         />
       </svg>
@@ -76,11 +76,14 @@ const Tooltip = ({ text, children }) => (
     </div>
   </div>
 );
-
+  const handleonclick = ()=>{
+    alert("Helo")
+  }
 /* ---------- Main Dashboard ---------- */
 const SEODashboard = ({data}) => {
   const [iframeError, setIframeError] = useState(false);
   const [seoData, setseoData] = useState(data)
+  const [block, setblock] = useState(false)
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] flex">
@@ -89,66 +92,66 @@ const SEODashboard = ({data}) => {
         <div className="max-w-4xl mx-auto space-y-6">
           {/* Header */}
           <div className="bg-[#121212] rounded-2xl border border-[#2A2A2A] p-6 shadow-xl font-outfit">
-  <div className="flex flex-col md:flex-row items-center justify-between">
-    {/* Left: Icon + Title */}
-    <div className="flex items-center space-x-4 mb-6 md:mb-0">
-      <div className="p-3 bg-blue-500/10 rounded-xl shadow-sm">
-        <BarChart3 className="w-7 h-7 text-blue-400" />
-      </div>
-      <div>
-        <h1 className="text-2xl font-semibold text-white tracking-tight">
-          SEO Audit Results
-        </h1>
-        <p className="text-sm text-gray-400">
-          Comprehensive analysis for{" "}
-          <span className="text-white font-medium">{seoData.url}</span>
-        </p>
-      </div>
-    </div>
+            <div className="flex flex-col md:flex-row items-center justify-between">
+              {/* Left: Icon + Title */}
+              <div className="flex items-center space-x-4 mb-6 md:mb-0">
+                <div className="p-3 bg-blue-500/10 rounded-xl shadow-sm">
+                  <BarChart3 className="w-7 h-7 text-blue-400" />
+                </div>
+                <div>
+                  <h1 className="text-2xl font-semibold text-white tracking-tight">
+                    SEO Audit Results
+                  </h1>
+                  <p className="text-sm text-gray-400">
+                    Comprehensive analysis for{" "}
+                    <span className="text-white font-medium">{seoData.url}</span>
+                  </p>
+                </div>
+              </div>
 
-    {/* Right: Score */}
-    <div className="text-center">
-      <ScoreCircle score={seoData?.score?.totalScore || 0} />
-      <p className="text-sm text-gray-400 mt-2">Overall Score</p>
-    </div>
-  </div>
-</div>
+              {/* Right: Score */}
+              <div className="text-center">
+                <ScoreCircle score={seoData?.score?.totalScore || 0} />
+                <p className="text-sm text-gray-400 mt-2">Overall Score</p>
+              </div>
+            </div>
+          </div>
 
 
           {/* --- Meta Tags --- */}
           <div className="bg-[#121212] rounded-2xl border border-[#2A2A2A] p-6 shadow-lg font-outfit">
-  <SectionHeader
-    Icon={FileText}
-    color="purple"
-    title="Meta Tags"
-    tooltip="Meta tags help search engines understand your page content"
-  />
+              <SectionHeader
+                Icon={FileText}
+                color="purple"
+                title="Meta Tags"
+                tooltip="Meta tags help search engines understand your page content"
+              />
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-    <MetaBlock
-      label="Title Tag"
-      value={seoData?.metaTags?.title}
-      ok={seoData?.metaTags?.checks?.titleLengthOK}
-      length={seoData?.metaTags?.title?.length}
-    />
-    <MetaBlock
-      label="Meta Description"
-      value={seoData?.metaTags?.description}
-      ok={seoData?.metaTags?.checks?.descriptionLengthOK}
-      length={seoData?.metaTags?.description?.length}
-    />
-    <MetaSimple
-      label="Open Graph Title"
-      value={seoData?.metaTags?.ogTitle}
-      ok={!!seoData?.metaTags?.ogTitle}
-    />
-    <MetaSimple
-      label="Twitter Card"
-      value={seoData?.metaTags?.twitterCard}
-      ok={!!seoData?.metaTags?.twitterCard}
-    />
-  </div>
-</div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <MetaBlock
+                  label="Title Tag"
+                  value={seoData?.metaTags?.title}
+                  ok={seoData?.metaTags?.checks?.titleLengthOK}
+                  length={seoData?.metaTags?.title?.length}
+                />
+                <MetaBlock
+                  label="Meta Description"
+                  value={seoData?.metaTags?.description}
+                  ok={seoData?.metaTags?.checks?.descriptionLengthOK}
+                  length={seoData?.metaTags?.description?.length}
+                />
+                <MetaSimple
+                  label="Open Graph Title"
+                  value={seoData?.metaTags?.ogTitle}
+                  ok={!!seoData?.metaTags?.ogTitle}
+                />
+                <MetaSimple
+                  label="Twitter Card"
+                  value={seoData?.metaTags?.twitterCard}
+                  ok={!!seoData?.metaTags?.twitterCard}
+                />
+              </div>
+            </div>
 
 
           {/* --- Headings --- */}
@@ -277,7 +280,7 @@ const MetaBlock = ({ label, value, ok, length }) => (
       </span>
     </div>
     <p className="text-sm text-gray-300 bg-[#181818] border border-[#2A2A2A] p-3 rounded-lg  shadow-sm min-h-24 line-clamp-2">
-      {value || "—"}
+      {value|| "—"}
     </p>
   </div>
 );
@@ -313,7 +316,7 @@ const HeadCount = ({ tag, count, color }) => {
   );
 };
 const CheckRow = ({ text, ok }) => (
-  <div className="flex items-center gap-3 p-3 bg-[#181818] border border-[#2A2A2A]  rounded-xl  shadow-sm">
+  <div className="flex items-center gap-3 p-3 bg-[#1f1f1f]  border border-[#2A2A2A] rounded-xl  shadow-sm">
     <StatusIcon status={ok ? "good" : "error"} />
     <span className="text-sm text-gray-300">
       {text}:{" "}
@@ -356,12 +359,24 @@ const MobileBlock = ({ data }) => (
 );
 
 const ImagesBlock = ({ data }) => (
+  
   <div className="bg-[#181818] rounded-2xl border border-[#2A2A2A] p-6 shadow-lg">
     <SectionHeader Icon={Image} color="indigo" title="Images" />
     <div  className='space-y-3'>
       <StatRow label="Total images" value={data.totalImages} />
-    <StatRow label="Missing alt text" value={data.missingAlt} color="red" />
+      <StatRow label="Missing alt text" value={data.missingAlt} color="red" />
     </div>
+    {
+         (
+        <div className='space-y-3 mt-3'>
+            {
+              data.missingAltImages.map((item)=>(
+                <CheckRow text={item.src} ok = {false}/>
+              ))
+            }
+        </div>
+      )
+    }
     <div className="space-y-2 mt-2">
       <div className="flex items-center justify-between">
         <span className="text-sm text-gray-300">Alt text coverage</span>
@@ -397,8 +412,8 @@ const CrawlBlock = ({ data }) => (
 );
 
 const Recommendations = ({ missingAlt, noSitemap }) => (
-  <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl border border-blue-500/30 p-6 shadow-lg">
-    <SectionHeader Icon={Target} color="blue" title="💡 Recommendations" />
+  <div className="bg-[#181818] rounded-2xl border border-[#2A2A2A] p-6 shadow-lg">
+    <SectionHeader Icon={Target} color="blue" title="Recommendations" />
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <RecCard title="High Priority">
         {noSitemap && <li>Create XML sitemap</li>}
@@ -413,14 +428,14 @@ const Recommendations = ({ missingAlt, noSitemap }) => (
 );
 
 const RecCard = ({ title, children }) => (
-  <div className="p-4 bg-gray-800/50 rounded-lg border border-gray-600">
+  <div className="p-4 bg-[#1f1f1f] border border-[#2A2A2A] rounded-lg">
     <h3 className="font-medium text-white mb-2">{title}</h3>
     <ul className="text-sm text-gray-300 space-y-1">{children}</ul>
   </div>
 );
 
 const StatRow = ({ label, value, color = 'white' }) => (
-  <div className="flex items-center justify-between p-3 bg-[#181818] border border-[#2A2A2A]  rounded-lg">
+  <div onClick={label == "Missing alt text" ? handleonclick :"" } className="flex items-center justify-between p-3 bg-[#1f1f1f]  border border-[#2A2A2A]  rounded-lg">
     <span className="text-sm text-gray-300">{label}</span>
     <span className={`font-semibold text-${color}`}>{value}</span>
   </div>
@@ -430,14 +445,14 @@ const PreviewHeader = ({ url }) => (
   <div className="p-4 border-b border-[#2A2A2A] bg-gray-750 flex-shrink-0">
     <div className="flex items-center justify-between mb-3">
       <div className="flex items-center space-x-2">
-        <Eye className="w-5 h-5 text-gray-400" />
+        <Eye className="w-5 h-5 text-orange-500" />
         <h3 className="font-semibold text-white">Live Preview</h3>
       </div>
       <button
         onClick={() => window.open(url, '_blank')}
         className="flex items-center space-x-1 px-3 py-1 bg-[#2A2A2A] text-white text-sm rounded-lg"
       >
-        <ExternalLink className="w-4 h-4" />
+        <ExternalLink className="w-4 h-4 text-orange-500" />
         <span>Open</span>
       </button>
     </div>

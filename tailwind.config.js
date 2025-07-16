@@ -9,6 +9,9 @@ module.exports = {
       fontFamily: {
         outfit: ['Outfit', 'sans-serif'],
       },
+      animation: {
+        pulseGlow: 'pulseGlow 4s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
