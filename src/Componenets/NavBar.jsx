@@ -5,7 +5,7 @@ import { Sparkles } from 'lucide-react';
 const NavBar = () => {
   return (
     <nav className="bg-[#0e0e0e] text-white px-6 py-4 border-b border-[#1f1f1f] shadow-sm backdrop-blur-sm z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-1 flex items-center justify-between">
   
         <div className="flex items-center gap-2 text-xl font-bold text-white">
           <Sparkles className="text-orange-400 w-5 h-5" />
