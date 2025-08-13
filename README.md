@@ -33,7 +33,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/YourUsername/ClaritySEO.git
+git clone https://github.com/Ali-dotcom98/ClaritySEO.git
 
 # Backend setup
 cd SeoTool_Backend
