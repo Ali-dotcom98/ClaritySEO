@@ -34,14 +34,6 @@
 ```bash
 # Clone the repository
 git clone https://github.com/Ali-dotcom98/ClaritySEO.git
-
-# Backend setup
-cd SeoTool_Backend
-npm install
-node Server.js
-
-# Frontend setup
-cd ../frontend
 npm install
 npm run dev
 ```
