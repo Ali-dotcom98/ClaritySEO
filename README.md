@@ -1,6 +1,6 @@
 ## 📊 ClaritySEO
 
-**ClaritySEO** is a fast, server-side SEO auditing tool built with **Node.js, Puppeteer, and React**. It allows users to audit websites for core SEO signals like meta tags, load time, mobile compatibility, image optimization, and more — all wrapped in a beautiful UI .
+**Clarity SEO** is a fast, server-side SEO auditing tool built with **Node.js, Puppeteer, and React**. It allows users to audit websites for core SEO signals like meta tags, load time, mobile compatibility, image optimization, and more — all wrapped in a beautiful UI .
 
 ---
 
